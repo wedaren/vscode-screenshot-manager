@@ -1,0 +1,81 @@
+{
+  "name": "vscode-screenshot-manager",
+  "displayName": "Screenshot Manager",
+  "description": "Capture, manage, and browse screenshots directly in VS Code with iCloud sync support",
+  "version": "0.1.0",
+  "publisher": "wedaren",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "screenshot-manager",
+          "title": "Screenshot Manager",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "screenshot-manager": [
+        {
+          "type": "webview",
+          "id": "screenshotManager.gallery",
+          "name": "Gallery"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Screenshot Manager",
+      "properties": {
+        "screenshotManager.saveDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "Directory to save screenshots. Defaults to ~/Library/Mobile Documents/com~apple~CloudDocs/Screenshots if empty (iCloud Drive)."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "screenshotManager.copyPath",
+        "title": "Screenshot Manager: Copy File Path"
+      },
+      {
+        "command": "screenshotManager.revealInFinder",
+        "title": "Screenshot Manager: Reveal in Finder"
+      },
+      {
+        "command": "screenshotManager.deleteScreenshot",
+        "title": "Screenshot Manager: Delete Screenshot"
+      },
+      {
+        "command": "screenshotManager.refreshGallery",
+        "title": "Screenshot Manager: Refresh Gallery"
+      },
+      {
+        "command": "screenshotManager.openBoard",
+        "title": "Screenshot Manager: Open Investigation Board"
+      },
+      {
+        "command": "screenshotManager.addToBoard",
+        "title": "Screenshot Manager: Add to Board"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}
