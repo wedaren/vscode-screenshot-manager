@@ -2,7 +2,7 @@
   "name": "vscode-screenshot-manager",
   "displayName": "Screenshot Manager",
   "description": "Capture, manage, and browse screenshots directly in VS Code with iCloud sync support",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "wedaren",
   "engines": {
     "vscode": "^1.85.0"
